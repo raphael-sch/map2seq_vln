@@ -1,0 +1,3 @@
+use_image_features: 'resnet_last_layer'
+heading_change: False
+junction_type_embedding: False

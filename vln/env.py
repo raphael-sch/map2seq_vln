@@ -61,8 +61,6 @@ class EnvBatch:
             nav = self.navs[i]
             pano, heading = nav.graph_state
             image_feature = self.image_features[pano][heading]
-            print(image_feature.shape)
-            exit()
             imgs.append(image_feature)
         imgs = np.array(imgs, dtype=np.float32)
         if self.opts.config.use_image_features == 'resnet_fourth_layer':
