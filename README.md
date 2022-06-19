@@ -1,33 +1,27 @@
 Code for ACL 2022 paper:  [Schumann and Riezler, "Analyzing Generalization of Vision and Language Navigation to Unseen Outdoor Areas "](https://aclanthology.org/2022.acl-long.518.pdf)
 
-# Results for weights in this repository
+# Results for Model Weights in this Repository
 
 | Model                             |  TC   |  SPD  |  SED  |  TC   |  SPD  |  SED  |
 |-----------------------------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |                                   |  dev  |  dev  |  dev  | test  | test  | test  |
-|                                   |       |       |       |       |       |       |
 | touchdown seen:                   |       |       |       |       |       |       |
 | - no image                        | 15.38 | 25.66 | 15.03 | 13.13 | 27.52 | 12.58 |
 | - 4th-to-last                     | 30.05 | 11.12 | 29.46 | 29.60 | 11.79 | 28.89 |
 | - 4th-to-last no head. & no junc. | 24.08 | 13.63 | 23.48 | 24.49 | 14.19 | 23.98 |
-|                                   |       |       |       |       |       |       |
 | touchdown unseen:                 |       |       |       |       |       |       |
 | - no image                        | 11.50 | 25.89 | 10.72 | 9.62  | 27.71 | 9.04  |
 | - 4th-to-last                     | 16.88 | 19.59 | 16.21 | 15.06 | 20.52 | 14.32 |
-|                                   |       |       |       |       |       |       |
 | map2seq seen:                     |       |       |       |       |       |       |
 | - no image                        | 42.25 | 8.02  | 41.52 | 39.25 | 7.90  | 38.42 |
 | - pre-final                       | 49.88 | 5.87  | 48.96 | 47.75 | 6.53  | 46.76 |
 | - pre-final no head. & no junc.   | 49.62 | 7.36  | 48.80 | 44.88 | 8.79  | 44.21 |
-|                                   |       |       |       |       |       |       |
 | map2seq unseen:                   |       |       |       |       |       |       |
 | - no image                        | 27.88 | 10.71 | 27.05 | 30.25 | 11.52 | 29.02 |
 | - 4th-to-last                     | 27.62 | 11.81 | 26.96 | 29.62 | 13.16 | 28.91 |
-|                                   |       |       |       |       |       |       |
 | merged seen:                      |       |       |       |       |       |       |
 | - no image                        | 27.80 | 18.48 | 27.15 | 24.63 | 19.51 | 23.91 |
 | - 4th-to-last                     | 38.20 | 9.18  | 37.42 | 36.22 | 9.55  | 35.42 |
-|                                   |       |       |       |       |       |       |
 | merged unseen:                    |       |       |       |       |       |       |
 | - no image                        | 22.19 | 17.85 | 21.46 | 19.85 | 21.20 | 19.10 |
 | - 4th-to-last                     | 25.31 | 15.17 | 24.24 | 24.10 | 16.48 | 23.46 |
