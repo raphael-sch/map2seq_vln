@@ -1,6 +1,6 @@
 Code for ACL 2022 paper:  [Schumann and Riezler, "Analyzing Generalization of Vision and Language Navigation to Unseen Outdoor Areas "](https://aclanthology.org/2022.acl-long.518.pdf)
 
-# Results for Model Weights in this Repository
+## Results for Model Weights in this Repository
 
 | Model                             |  TC   |  SPD  |  SED  |  TC   |  SPD  |  SED  |
 |-----------------------------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -26,20 +26,20 @@ Code for ACL 2022 paper:  [Schumann and Riezler, "Analyzing Generalization of Vi
 | - no image                        | 22.19 | 17.85 | 21.46 | 19.85 | 21.20 | 19.10 |
 | - 4th-to-last                     | 25.31 | 15.17 | 24.24 | 24.10 | 16.48 | 23.46 |
 
-# Workflow without Images 
+## Workflow without Images 
 (no need to download and preprocess panoramas)
 
-## Preparation
+### Preparation
 ```
 pip install -r requirements.txt
 ```
 
-## Test
+### Inference and Evaluation
 ```
 python vln/main.py --test True --dataset map2seq_unseen --config outputs/map2seq_unseen/noimage/config/noimage.yaml --exp_name noimage --resume SPD_best
 ```
 
-## Train from Scratch:
+### Train from Scratch:
 ```
 python vln/main.py --dataset touchdown_unseen --config configs/noimage.yaml --exp_name no_image
 ```
@@ -50,27 +50,26 @@ python vln/main.py --dataset touchdown_unseen --config configs/noimage.yaml --ex
 
 
 #
-#
-# Workflow with Images
+## Workflow with Images
 
-## Preparation
+### Panorama Preprocessing
+Unfortunately we are not allowed to share the panorama images or the ResNet features derived from them. You have to request to download the images here: https://sites.google.com/view/streetlearn/dataset  
+Then change into the `panorama_preprocessing/last_layer` or `panorama_preprocessing/fourth_layer` folder and use the `extract_features.py` script. 
+
+### Preparation
 ```
 pip install -r requirements.txt
 ```
 
-image features dir should contain .pickle files named e.g. "pre-final.pickle"
-
-pickle object format: dict: panoid: heading: numpy array (5x2048)
-
-e.g. dict('HgFMRzAguxKiBHkwCQ_TgQ': dict(297: np(5x2048), 118: np(5x2048)), 'lvziEd_sT6RjF5Jpxo9_Fg': dict(151: np(5x2048), 208: np(5x2048), 28: np(5x2048)))
-
-## Test
+### Test
 ```
 python vln/main.py --test True --dataset touchdown_seen --img_feat_dir 'path_to_features_dir' --config link_to_config --exp_name 4th-to-last --resume SPD_best
 ```
 
+The `path_to_features_dir` should contain the `resnet_fourth_layer.pickle` and `resnet_last_layer.pickle` file created in the pano preprocessing step.
 
-## Train from Scratch:
+
+### Train from Scratch:
 ```
 python vln/main.py --dataset touchdown_seen --img_feat_dir 'path_to_features_dir' --config configs/4th-to-last.yaml --exp_name 4th-to-last
 ```
