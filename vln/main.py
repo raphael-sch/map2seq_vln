@@ -197,7 +197,7 @@ def train(opts, image_features, tokenizer):
             ckpt = ({
                 'SPD': SPD,
                 'TC': TC,
-                'config': opts.config,
+                'opts': opts,
                 'epoch': epoch + 1,
                 'model_state_dict': trainer.agent.model.state_dict(),
                 'instr_encoder_state_dict': trainer.agent.instr_encoder.state_dict()
